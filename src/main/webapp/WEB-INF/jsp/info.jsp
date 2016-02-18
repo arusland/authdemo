@@ -5,18 +5,15 @@
 
 <html lang="en">
 <head>
+<title>App - ${user}</title>
 <link rel="stylesheet" type="text/css" media="all" href="/css/main.css" />
 <link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet" media="screen" />
 </head>
-
 <body>
 	<div class="container">
-		<c:url value="/resources/text.txt" var="url" />
-		<spring:url value="/resources/text.txt" htmlEscape="true"
-			var="springUrl" />
-		Spring URL: ${springUrl} at ${time} <br> JSTL URL: ${url} <br>
-		Message: ${message} <br> User: ${user}
+		<div>User=${user}</div>
+		<div>Role=${role}</div>
 	</div>
 </body>
 
