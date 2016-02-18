@@ -37,10 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
-		StandardPasswordEncoder pe = new StandardPasswordEncoder("SECRET_SALT");
-		
-		System.out.println(pe.encode("admin"));
-		
-		return pe;
+		return new StandardPasswordEncoder("SECRET");
 	}
 }

@@ -10,7 +10,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		return new UserDetailsImpl(new User("admin", "500b750ce9c1cd843b8df9b9731faab43965d1939aaf3aa23b0d028f51e54c5bc420612454cd288a"), null);
+		return new UserDetailsImpl(new User("admin", "af9c28b8b57169f5996d61e26577bb57a323e0d1e22956204be12fb042bfb189137df466fdcb4166"), null);
 	}
 
 }
