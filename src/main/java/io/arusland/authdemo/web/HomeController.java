@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +22,7 @@ public class HomeController {
 	@ResponseBody
 	@RequestMapping("/")
 	public String hello() {
-		return "Hello from Spring Boot: " + properties;
+		return "Hello from Spring Boot: enableApp=" + properties.isEnableApp();
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

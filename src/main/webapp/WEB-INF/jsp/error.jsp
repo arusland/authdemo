@@ -16,6 +16,8 @@
 			status=${status}).</div>
 		<div class="error">${message}</div>
 	</div>
+	
+	<jsp:include page="links.jsp"/>
 </body>
 
 </html>

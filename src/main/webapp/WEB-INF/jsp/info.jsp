@@ -15,6 +15,8 @@
 		<div>User=${user}</div>
 		<div>Role=${role}</div>
 	</div>
+	
+	<jsp:include page="links.jsp"/>
 </body>
 
 </html>

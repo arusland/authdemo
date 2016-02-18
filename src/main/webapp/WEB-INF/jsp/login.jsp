@@ -19,9 +19,11 @@
 
 	<label>Email:<br> <input autofocus autocapitalize="off"
 		type="text" name="username" size="40"></label> <label>Password:<br>
-		<br/>
-		<input type="password" name="password" size="40"></label>
+		<br /> <input type="password" name="password" size="40"></label> <input
+		type="checkbox" name="remember-me" />
 	<button type="submit" class="btn btn-primary">Sign-in</button>
+
+	<jsp:include page="links.jsp" />
 </form>
 
 </html>

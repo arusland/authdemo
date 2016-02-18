@@ -13,22 +13,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import io.arusland.authdemo.AppProperties;
+
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private AppProperties properties;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/css/**").permitAll().antMatchers("/js/**").permitAll()
 				.antMatchers("/templates/**").permitAll().antMatchers("/webjars/**").permitAll()
-				.antMatchers("/public/**").permitAll().anyRequest().authenticated().and().formLogin()
+				.antMatchers("/public/**").permitAll()
+				.anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").failureUrl("/login?error").permitAll().and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll().and()
-				.csrf().disable();
+				.csrf().disable().rememberMe().key(properties.getRememberMeKey());
 	}
 
 	@Override
@@ -38,6 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
-		return new StandardPasswordEncoder("SECRET");
+		return new StandardPasswordEncoder(properties.getPasswordEncoderSecret());
 	}
 }

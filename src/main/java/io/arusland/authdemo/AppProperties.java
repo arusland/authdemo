@@ -9,5 +9,7 @@ import lombok.Data;
 @ConfigurationProperties("io.arusland")
 @Data
 public class AppProperties {
-	private boolean enableApp;
+	private boolean enableApp;	
+	private String rememberMeKey;
+	private String passwordEncoderSecret;
 }

@@ -18,6 +18,8 @@
 		Spring URL: ${springUrl} at ${time} <br> JSTL URL: ${url} <br>
 		Message: ${message} <br> User: ${user}
 	</div>
+	
+	<jsp:include page="links.jsp"/>
 </body>
 
 </html>
