@@ -11,6 +11,11 @@
 <a href='<c:url value="/exp"/>'>/exp</a>
 <br />
 
+<a href='<c:url value="/perm/42"/>'>/perm/42</a>
+<br />
+<a href='<c:url value="/perm/not42"/>'>/perm/not42</a>
+<br />
+
 <sec:authorize access="isAuthenticated()">
 	<a href='<c:url value="/logout"/>'>/logout</a>
 	<br />
