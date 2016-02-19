@@ -21,19 +21,16 @@ import io.arusland.authdemo.AppProperties;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Autowired
 	private AppProperties properties;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/css/**").permitAll().antMatchers("/js/**").permitAll()
-				.antMatchers("/templates/**").permitAll().antMatchers("/webjars/**").permitAll()
-				.antMatchers("/public/**").permitAll()
-				.anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").failureUrl("/login?error").permitAll().and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll().and()
-				.csrf().disable().rememberMe().key(properties.getRememberMeKey());
+		http.authorizeRequests().antMatchers("/css/**").permitAll().antMatchers("/js/**").permitAll().antMatchers("/templates/**").permitAll()
+				.antMatchers("/webjars/**").permitAll().antMatchers("/public/**").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
+				.failureUrl("/login?error").permitAll().and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
+				.permitAll().and().rememberMe().key(properties.getRememberMeKey());
 	}
 
 	@Override

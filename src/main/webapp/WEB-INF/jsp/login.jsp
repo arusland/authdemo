@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
 <title>Login</title>
@@ -15,15 +17,17 @@
 		<div class="error">Authentication failed!</div>
 	</c:if>
 
-	<!--TODO: csrf -->
-
 	<label>Email:<br> <input autofocus autocapitalize="off"
 		type="text" name="username" size="40"></label> <label>Password:<br>
 		<br /> <input type="password" name="password" size="40"></label> <input
 		type="checkbox" name="remember-me" />
-	<button type="submit" class="btn btn-primary">Sign-in</button>
+	<button type="submit" class="btn btn-primary">Sign-in</button>	
 
-	<jsp:include page="links.jsp" />
+	<sec:csrfInput />	
+	<!-- The same as next line -->
+	<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
 </form>
+
+<jsp:include page="links.jsp" />
 
 </html>

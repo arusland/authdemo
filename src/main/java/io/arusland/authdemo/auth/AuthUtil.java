@@ -32,11 +32,11 @@ public class AuthUtil {
 		}
 
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		
+
 		if (principal instanceof UserDetailsImpl) {
 			return ((UserDetailsImpl) principal).getUser();
 		} else if (principal instanceof String) {
-			return new User((String)principal, "");
+			return new User((String) principal, "");
 		} else {
 			return null;
 		}
@@ -53,13 +53,13 @@ public class AuthUtil {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public static Collection<GrantedAuthority> getRoles() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
+
 		if (authentication == null) {
 			return Collections.emptyList();
 		}
