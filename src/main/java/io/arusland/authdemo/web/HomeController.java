@@ -46,4 +46,11 @@ public class HomeController {
 		return new ModelAndView("info").addObject("user", AuthUtil.getUsername()).addObject("role",
 				AuthUtil.getRoles().stream().findFirst().get());
 	}
+	
+	@ResponseBody
+	@RequestMapping("/perm/{obj}")
+	@PreAuthorize("hasPermission(#obj, 'readx')")
+	public String perm(@PathVariable("obj") String obj){
+		return obj + "_VALID";
+	}
 }
